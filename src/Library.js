@@ -22,7 +22,7 @@ const Library = (props) => {
 
   for (let i = 1; i <= 10; i++) {
     audios.push(
-      `https://backendlessappcontent.com/33170295-1C47-434B-BF7D-D23C7D98F29F/38D93EF3-E73E-4FA6-82E0-26145CBF23F6/files/media/a${i}.mp3`
+      `https://backendlessappcontent.com/${process.env.REACT_APP_BACKEND_KEY_1}/${process.env.REACT_APP_BACKEND_KEY_2}/files/media/a${i}.mp3`
     );
     images.push(`./images/i${i}`);
     list.push({
