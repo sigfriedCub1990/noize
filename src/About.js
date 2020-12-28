@@ -1,7 +1,7 @@
 import React from "react";
 import "./About.css";
 
-function About(props) {
+const About = (props) => {
   return (
     <div className="about">
       <svg
@@ -98,6 +98,6 @@ function About(props) {
       </div>
     </div>
   );
-}
+};
 
 export default About;

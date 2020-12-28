@@ -1,7 +1,10 @@
 import React from "react";
 import "./SongPage.css";
 
-function SongPage(props) {
+const SongPage = (props) => {
+  const videoSrc = require(`${props.isrc}.mp4`).default;
+  const imageSrc = require(`${props.isrc}.gif`).default;
+
   return (
     <div className="wrapper">
       <svg
@@ -23,13 +26,13 @@ function SongPage(props) {
       <div className="song-page">
         {props.error ? (
           <img
-            src={require(`${props.isrc}.gif`)}
+            src={imageSrc}
             alt="Relaxing GIF"
             className="page-image"
           />
         ) : (
           <video className="page-image" autoPlay loop muted playsInline>
-            <source src={require(`${props.isrc}.mp4`)} type="video/mp4" />
+            <source src={videoSrc} type="video/mp4" />
           </video>
         )}
 
@@ -40,6 +43,6 @@ function SongPage(props) {
       </div>
     </div>
   );
-}
+};
 
 export default SongPage;

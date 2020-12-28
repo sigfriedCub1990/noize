@@ -2,7 +2,7 @@ import React from "react";
 import "./Library.css";
 import SongCard from "./SongCard";
 
-function Library(props) {
+const Library = (props) => {
   const audios = [];
   const images = [];
   const list = [];
@@ -25,17 +25,27 @@ function Library(props) {
       `https://backendlessappcontent.com/33170295-1C47-434B-BF7D-D23C7D98F29F/38D93EF3-E73E-4FA6-82E0-26145CBF23F6/files/media/a${i}.mp3`
     );
     images.push(`./images/i${i}`);
-    list.push([audios[i - 1], images[i - 1], titles[i - 1]]);
+    list.push({
+      audio: audios[i - 1],
+      image: images[i - 1],
+      title: titles[i - 1],
+    });
   }
 
-  const songs = list.map(arr => {
+  const songs = list.map((song, idx) => {
+    const {
+      title,
+      audio,
+      image,
+    } = song;
+
     return (
       <SongCard
-        key={arr.toString()}
+        key={idx}
         songClicked={props.songClicked}
-        asrc={arr[0]}
-        isrc={arr[1]}
-        title={arr[2]}
+        asrc={audio}
+        isrc={image}
+        title={title}
         err={false}
       />
     );
@@ -69,6 +79,6 @@ function Library(props) {
       {finalSongs}
     </div>
   );
-}
+};
 
 export default Library;
